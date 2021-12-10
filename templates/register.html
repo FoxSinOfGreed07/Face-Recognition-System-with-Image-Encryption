@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% block title %} Register {% endblock %}
+
+{% block mainContent %}
+<form class="col s4 offset-s4" action="/storeData" method="GET" id="form">
+    <div class="row">
+        <div class="input-field col s12">
+            <input placeholder="firstName" id="firstName" type="text" class="validate" name="fname" required>
+            <label for="firstName">First Name</label>
+        </div>
+        <div class="input-field col s12">
+            <input placeholder="lastName" id="lastName" type="text" class="validate" name="lname" required>
+            <label for="lastName">Last Name</label>
+        </div>
+        <div class="input-field col s12">
+            <input placeholder="email" id="email" type="email" class="validate" name="email" required>
+            <label for="email">Email</label>
+        </div>
+        <div class="input-field col s12">
+            <input placeholder="question" id="question" type="text" class="validate" name="question" required>
+            <label for="question">Enter your Security Question</label>
+        </div>
+        <div class="input-field col s12">
+            <input placeholder="answer" id="answer" type="text" class="validate" name="answer" required>
+            <label for="answer">Enter your Security Question's Answer</label>
+        </div>
+        <div class="input-field col s12">
+            <input placeholder="userName" id="userName" type="text" class="validate" name="username" required>
+            <label for="userName">User Name</label>
+        </div>
+        <div class="input-field col s12">
+            <input placeholder="password" id="password" type="password" class="validate" name="password" required>
+            <label for="password">Password</label>
+        </div>
+        <div class="input-field col s12">
+            <input placeholder="password" id="cpassword" type="password" class="validate" required>
+            <label for="cpassword">Confirm Password</label>
+        </div>
+        <div class="col s4 offset-s4">
+            <input type="submit" class="btn" value="Take Snap">
+        </div>
+        <div class="col s4 offset-s4" style="margin-top:10px;">
+            <a href="/" class="btn">
+                <i class="small material-icons right">home</i>
+                Home
+            </a>
+        </div>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% block title %} Welcome {% endblock %}
+
+{%block mainContent %}
+
+    <div class="container">
+        <div class="row">
+            <h1>Hello and Welcome {{name}}</h1>
+            <h3>Answer the following security Question</h3>
+            <h4 id="question"></h4>
+            <input type="text" name="getans" id="getans"><br>
+            <img id="camImg" height="100" class="hide">
+            <button onclick="check()" class="btn col" >
+                <i class="small material-icons right">verified_user</i>
+                Verify
+            </button>
+            <a href="/logout" class="btn col" style="margin-left: 10px;">
+                <i class="small material-icons right">cancel</i>
+                Cancel
+            </a>
+        </div>
+    </div>
+
+    <script>
+        var question = {{question|tojson}};
+        var answer = {{answer|tojson}};
+        document.getElementById('question').innerHTML=question;
+        function check() {
+            var getans = document.getElementById('getans').value;
+            if (getans == answer) {
+                location.replace("/details");
+            }
+            else {
+                location.replace("/fail");
+            }
+        }
+
+        let d = new Date;
+        let today = d.getDay()+"-"+d.getMonth()+"-"+d.getFullYear()+"_t-"+d.getHours()+":"+d.getMinutes();
+        var url = "http://localhost:5050/add_newLogin?name=" + today.toString();
+        document.getElementById('camImg').src = url;
+    </script>
+{% endblock %}
